@@ -18,7 +18,7 @@ metodo = "REGISTER sip:" + sys.argv[4] + " SIP/2.0\r\n\r\n" + expires
 
 # Creamos el socket, lo configuramos y lo atamos a un servidor/puerto
 with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as my_socket:
-    my_socket.connect((server, port)) 
+    my_socket.connect((server, port))
     if registro == "register":
         print("Enviando:", metodo)
     my_socket.send(bytes(metodo, 'utf-8') + b'\r\n')
