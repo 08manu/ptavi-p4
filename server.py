@@ -18,10 +18,11 @@ class SIPRegisterHandler(socketserver.DatagramRequestHandler):
             print(informacion)
         self.wfile.write(b"Hemos recibido tu peticion")
         Lista = self.rfile.read().decode('utf-8').split()
+        print(Lista)
         Direccion = Lista[1]
         if Lista[0] == 'REGISTER':
             self.dic[Direccion] = self.client_address[0]
-            print(Direccion)
+            print(self.dic)
 if __name__ == "__main__":
     port = int(sys.argv[1])
     serv = socketserver.UDPServer(('', port), SIPRegisterHandler)
