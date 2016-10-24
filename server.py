@@ -9,7 +9,7 @@ import sys
 
 class SIPRegisterHandler(socketserver.DatagramRequestHandler):
     """
-    Echo server class
+    SIPRegisterHandler
     """
     dic = {}
 
@@ -28,6 +28,9 @@ class SIPRegisterHandler(socketserver.DatagramRequestHandler):
                 expires = Lista[3] 
                 self.dic['expires'] = expires
         print(self.dic)
+
+
+
 if __name__ == "__main__":
     port = int(sys.argv[1])
     serv = socketserver.UDPServer(('', port), SIPRegisterHandler)
